@@ -3,7 +3,7 @@ Kolla jenkins jobs
 ==================
 
 This repo exists to serve as the one stop shop for
-the cloudplatform jenkin job configuration and tools and
+the kolla jenkin job(s) configuration and tools and
 scripts and configuration to be able to recreate those jobs
 on a new or existing set of jenkins masters (as well as to
 host a location where we as a group can peer-review these
