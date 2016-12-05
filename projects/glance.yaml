@@ -1,0 +1,58 @@
+# This contains all the jobs needed for testing of the external version
+# of nova and internal building and testing of our extensions and
+# package building processes.
+
+- project:
+    name: glance
+    mail-to: cloud@godaddy.com
+    jobs:
+      - 'glance'
+
+- job:
+    # http://docs.openstack.org/infra/jenkins-job-builder/parameters.html
+    parameters:
+      - string:
+          name: project_url
+          default: ""
+          description: "Project git source url? (if not provided/or empty the data from the deploy repo is used)"
+      - string:
+          name: project_ref
+          default: ""
+          description: "On which project branch/tag/sha to run? (if not provided/or empty the data from the deploy repo is used)"
+      - string:
+          name: deploy_url
+          default: "git@github.secureserver.net:cloudplatform/openstack-deploy.git"
+          description: "Deploy repo git source url?"
+      - string:
+          name: deploy_ref
+          default: "master"
+          description: "On which deploy repo branch/tag/sha to run?"
+      - string:
+          name: requirement_url
+          default: ""
+          description: "Requirement project git source url? (if not provided/or empty the data from the deploy repo is used)"
+      - string:
+          name: requirement_ref
+          default: ""
+          description: "On which requirement branch/tag/sha to run? (if not provided/or empty the data from the deploy repo is used)"
+      - string:
+          name: kolla_url
+          default: ""
+          description: "Kolla project git source url? (if not provided/or empty the data from the deploy repo is used)"
+      - string:
+          name: kolla_ref
+          default: ""
+          description: "On which kolla project branch/tag/sha to run? (if not provided/or empty the data from the deploy repo is used)"
+      - string:
+          name: docker_repo
+          default: ""
+          description: "Docker image repo to push built images into (empty is equivalent to not pushing)"
+    name: 'glance'
+    defaults: openstack
+    display-name: "Glance"
+    dsl:
+      !include-raw:
+        # Order matters here.
+        - "scripts/common.groovy"
+        - "scripts/glance.groovy"
+        - "scripts/openstack.groovy"

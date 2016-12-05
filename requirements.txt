@@ -1,0 +1,4 @@
+PyYAML
+python-jenkins
+jenkins-job-builder
+pathlib2

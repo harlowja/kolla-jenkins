@@ -1,0 +1,19 @@
+- defaults:
+    name: openstack
+    description: |
+      This job is managed by an automatic process and will be overwritten.
+
+      Do not edit this job through the web!
+
+      If you would like to make changes to this job, please see:
+
+      https://github.secureserver.net/cloudplatform/jenkins-jobs/
+    retry-count: 3
+    project-type: workflow
+    wrappers:
+      - ansicolor
+      - timestamps
+      - timeout:
+          timeout: 120
+          fail: true
+          timeout-var: 'BUILD_TIMEOUT'
