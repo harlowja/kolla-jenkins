@@ -39,3 +39,4 @@ Useful Links
 
 1. https://www.mediawiki.org/wiki/Continuous_integration/Jenkins_job_builder
 2. http://blogs.rdoproject.org/6006/manage-jenkins-jobs-with-yaml
+3. http://docs.openstack.org/infra/jenkins-job-builder/
