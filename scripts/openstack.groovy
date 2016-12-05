@@ -3,7 +3,7 @@
 stage("Loading remote libraries")
 helpers = fileLoader.fromGit(
     "lib/helpers",
-    "git@github.secureserver.net:cloudplatform/jenkins-jobs.git",
+    "https://github.com/harlowja/kolla-jenkins.git",
     "master")
 
 stage("Input parameter resolving")
